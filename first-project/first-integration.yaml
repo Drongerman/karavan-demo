@@ -1,0 +1,12 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: first-integration.yaml
+spec:
+  flows:
+    - route:
+        from:
+          uri: kamelet:mqtt-source
+          steps:
+            - to:
+                uri: kamelet:kafka-not-secured-sink
